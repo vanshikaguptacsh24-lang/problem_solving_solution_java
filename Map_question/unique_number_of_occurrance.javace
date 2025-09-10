@@ -1,0 +1,17 @@
+class Solution {
+    public static boolean isFrequencyUnique(int n, int[] arr) {
+        // code here
+        HashMap<Integer, Integer> freqMap = new HashMap<>();
+        for (int num : arr) {
+            freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
+
+        }
+        HashSet<Integer> freqSet = new HashSet<>();
+        for (int freq : freqMap.values()) {
+            if (!freqSet.add(freq)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
